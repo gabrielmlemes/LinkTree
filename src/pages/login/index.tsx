@@ -25,8 +25,6 @@ const Login = () => {
     })
     .catch((error)=> {
       console.log('ERRO NO LOGIN ' + error);
-      
-      
     })
 
   }
