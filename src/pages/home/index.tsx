@@ -1,5 +1,5 @@
 import { Social } from "../../components/social"
-import {FaFacebook, FaInstagram, FaYoutube} from 'react-icons/fa'
+import {FaGithub, FaInstagram, FaLinkedin} from 'react-icons/fa'
 
 const Home = () => {
   return (
@@ -15,16 +15,16 @@ const Home = () => {
         </section>
 
         <footer className="flex justify-center gap-3 my-4">
-          <Social url={'https://instagram'}> 
-            <FaFacebook size={35} color='#fff' />
+          <Social url={'https://github.com/gabrielmlemes'}> 
+            <FaGithub size={35} color='#fff' />
           </Social>
           
           <Social url={'https://instagram.com/g_lemess'}> 
             <FaInstagram size={35} color='#fff' />
           </Social>
           
-          <Social url={'https://instagram.com/g_lemess'}> 
-            <FaYoutube size={35} color='#fff' />
+          <Social url={'https://www.linkedin.com/in/gabriel-l-775abb103/'}> 
+            <FaLinkedin size={35} color='#fff' />
           </Social>
         </footer>
       </main>
