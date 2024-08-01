@@ -157,7 +157,7 @@ const Admin = () => {
 
           <button
             type="submit"
-            className="mb-7 bg-blue-600 g h-9 rounded-md text-white font-medium gap-4 flex items-center justify-center"
+            className="mb-7 bg-green-900 g h-9 rounded-md text-white font-medium gap-4 flex items-center justify-center"
           >
             Cadastrar
           </button>

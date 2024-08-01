@@ -11,19 +11,24 @@ import {
 } from "firebase/firestore";
 
 const Networks = () => {
-  const [facebook, setFacebook] = useState("");
-  const [youtube, setYoutube] = useState("");
+  const [whatsapp, setWhatsapp] = useState("");
+  const [github, setGithub] = useState("");
   const [instagram, setInstagram] = useState("");
+  const [portfolio, setPortfolio] = useState("");
+  const [linkedin, setLinkedin] = useState("");
 
+  // Buscar do banco os links
   useEffect(()=> {
     function loadLinks() {
       const docRef = doc(db, "social", "link")
       getDoc(docRef)
       .then((snapshot)=> {
         if (snapshot.data() !== undefined) {
-          setFacebook(snapshot.data()?.facebook)
-          setYoutube(snapshot.data()?.youtube)
+          setWhatsapp(snapshot.data()?.whatsapp)
+          setGithub(snapshot.data()?.github)
           setInstagram(snapshot.data()?.instagram)
+          setPortfolio(snapshot.data()?.portfolio)
+          setLinkedin(snapshot.data()?.linkedin)
         }
       })
     }
@@ -31,13 +36,16 @@ const Networks = () => {
     loadLinks()
   },[])
 
+  // Registrar no banco os links
   function handleRegister(e: FormEvent) {
     e.preventDefault();
 
     setDoc(doc(db, "social", "link"), {
-      facebook: facebook,
-      youtube: youtube,
-      instagram: instagram
+      whatsapp: whatsapp,
+      github: github,
+      instagram: instagram,
+      portfolio: portfolio,
+      linkedin: linkedin
     })
     .then(() => {
       alert("Cadastrado com sucesso!");
@@ -57,20 +65,20 @@ const Networks = () => {
       </h1>
 
       <form className="flex flex-col w-full max-w-xl" onSubmit={handleRegister}>
-        <label className="text-white my-2">Link do Facebook</label>
+        <label className="text-white my-2">Link do Whatsapp</label>
         <Input
           type="url"
           placeholder="Digite o link"
-          value={facebook}
-          onChange={(e) => setFacebook(e.target.value)}
+          value={whatsapp}
+          onChange={(e) => setWhatsapp(e.target.value)}
         />
 
-        <label className="text-white my-2">Link do Youtube</label>
+        <label className="text-white my-2">Link do Github</label>
         <Input
           type="url"
           placeholder="Digite o link"
-          value={youtube}
-          onChange={(e) => setYoutube(e.target.value)}
+          value={github}
+          onChange={(e) => setGithub(e.target.value)}
         />
 
         <label className="text-white my-2">Link do Instagram</label>
@@ -79,6 +87,22 @@ const Networks = () => {
           placeholder="Digite o link"
           value={instagram}
           onChange={(e) => setInstagram(e.target.value)}
+        />
+        
+        <label className="text-white my-2">Link do Portfólio</label>
+        <Input
+          type="url"
+          placeholder="Digite o link"
+          value={portfolio}
+          onChange={(e) => setPortfolio(e.target.value)}
+        />
+        
+        <label className="text-white my-2">Link do Linkedin</label>
+        <Input
+          type="url"
+          placeholder="Digite o link"
+          value={linkedin}
+          onChange={(e) => setLinkedin(e.target.value)}
         />
 
         <button
